@@ -295,11 +295,11 @@ An informal description can be found on [Wikipedia](https://en.wikipedia.org/wik
     dyn_drop,
 )]
 
+#[cfg(feature = "sqlx_postgres")]
+use sqlx::postgres::{PgHasArrayType, PgTypeInfo};
+
 #[cfg(feature = "sqlx")]
-use sqlx::{
-    postgres::{PgHasArrayType, PgTypeInfo},
-    {encode::IsNull, error::BoxDynError, Database, Decode, Encode, Type},
-};
+use sqlx::{encode::IsNull, error::BoxDynError, Database, Decode, Encode, Type};
 
 #[cfg(feature = "serde_support")]
 use serde::{Deserialize, Serialize, Serializer};
@@ -705,7 +705,7 @@ where
     }
 }
 
-#[cfg(feature = "sqlx")]
+#[cfg(feature = "sqlx_postgres")]
 impl PgHasArrayType for EmailAddress
 where
     String: PgHasArrayType,
