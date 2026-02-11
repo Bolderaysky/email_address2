@@ -10,7 +10,7 @@ suitable for validation and strongly-typed application code.
 ![MIT License](https://img.shields.io/badge/license-mit-118811.svg)
 ![Minimum Rust Version](https://img.shields.io/badge/Min%20Rust-1.40-green.svg)
 [![crates.io](https://img.shields.io/crates/v/email_address.svg)](https://crates.io/crates/email_address2)
-[![docs.rs](https://docs.rs/email_address/badge.svg)](https://docs.rs/email_address)
+[![docs.rs](https://docs.rs/email_address2/badge.svg)](https://docs.rs/email_address2)
 ![Build](https://github.com/Bolderaysky/email_address2/workflows/Rust/badge.svg)
 ![Audit](https://github.com/Bolderaysky/email_address2/workflows/Security%20audit/badge.svg)
 [![GitHub stars](https://img.shields.io/github/stars/Bolderaysky/email_address2.svg)](https://github.com/Bolderaysky/email_address2/stargazers)

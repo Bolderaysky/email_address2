@@ -20,7 +20,7 @@ headers; folding whitespace, comments, etc.
 The following shoes the basic `is_valid` and `from_str` functions.
 
 ```rust
-use email_address::*;
+use email_address2::*;
 use std::str::FromStr;
 
 assert!(EmailAddress::is_valid("user.name+tag+sorting@example.com"));
@@ -34,7 +34,7 @@ assert_eq!(
 The following shows the three format functions used to output an email address.
 
 ```rust
-use email_address::*;
+use email_address2::*;
 use std::str::FromStr;
 
 let email = EmailAddress::from_str("johnstonsk@gmail.com").unwrap();
@@ -361,7 +361,7 @@ pub struct Options {
     /// Sets the minimum number of domain segments that must exist to parse successfully.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     ///
     /// assert!(
     ///     EmailAddress::parse_with_options(
@@ -384,7 +384,7 @@ pub struct Options {
     /// Specifies if domain literals are allowed. Defaults to `true`.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     ///
     /// assert!(
     ///     EmailAddress::parse_with_options(
@@ -410,7 +410,7 @@ pub struct Options {
     /// and therefore the '<' and '>' brackets around the email part.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     ///
     /// assert_eq!(
     ///     EmailAddress::parse_with_options(
@@ -753,7 +753,7 @@ impl EmailAddress {
     ///
     /// ```
     /// use std::str::FromStr;
-    /// use email_address::EmailAddress;
+    /// use email_address2::EmailAddress;
     ///
     /// let unchecked = "john.doe@example.com";
     /// let email = EmailAddress::from_str(unchecked).expect("email is not valid");
@@ -774,7 +774,7 @@ impl EmailAddress {
     /// that aren't mandatory by the specification.
     ///
     /// ```
-    /// use email_address::{EmailAddress, Options};
+    /// use email_address2::{EmailAddress, Options};
     ///
     /// let options = Options { minimum_sub_domains: 2, ..Options::default() };
     /// let result = EmailAddress::parse_with_options("john.doe@localhost", options).is_ok();
@@ -790,7 +790,7 @@ impl EmailAddress {
     /// the following:
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// let is_valid = EmailAddress::from_str("johnstonskj@gmail.com").is_ok();
@@ -821,7 +821,7 @@ impl EmailAddress {
     /// address itself. So, `name@example.org` becomes `mailto:name@example.org`.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// assert_eq!(
@@ -841,7 +841,7 @@ impl EmailAddress {
     /// address.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// assert_eq!(
@@ -859,7 +859,7 @@ impl EmailAddress {
     /// allocation is required.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// assert_eq!(
@@ -878,7 +878,7 @@ impl EmailAddress {
     /// allocation is required.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// assert_eq!(
@@ -897,7 +897,7 @@ impl EmailAddress {
     /// allocation is required.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// assert_eq!(
@@ -916,7 +916,7 @@ impl EmailAddress {
     /// allocation is required.
     ///
     /// ```rust
-    /// use email_address::*;
+    /// use email_address2::*;
     /// use std::str::FromStr;
     ///
     /// assert_eq!(
