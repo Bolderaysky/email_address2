@@ -1,19 +1,29 @@
-# Crate email_address
+# Crate email_address2
 
-A Rust crate providing an implementation of an RFC-compliant `EmailAddress` newtype. 
+A Rust crate providing an implementation of an RFC-compliant `EmailAddress` newtype.
+This crate is a maintained fork of [email_address](https://crates.io/crates/email_address).
+The original crate appears to be no longer actively maintained, and this fork exists to 
+continue development, add ecosystem integrations, and keep the crate usable in modern Rust projects.
+The primary goal remains the same: provide a small, fast, and RFC-aware email address type 
+suitable for validation and strongly-typed application code.
 
 ![MIT License](https://img.shields.io/badge/license-mit-118811.svg)
 ![Minimum Rust Version](https://img.shields.io/badge/Min%20Rust-1.40-green.svg)
-[![crates.io](https://img.shields.io/crates/v/email_address.svg)](https://crates.io/crates/email_address)
+[![crates.io](https://img.shields.io/crates/v/email_address.svg)](https://crates.io/crates/email_address2)
 [![docs.rs](https://docs.rs/email_address/badge.svg)](https://docs.rs/email_address)
-![Build](https://github.com/johnstonskj/rust-email_address/workflows/Rust/badge.svg)
-![Audit](https://github.com/johnstonskj/rust-email_address/workflows/Security%20audit/badge.svg)
-[![GitHub stars](https://img.shields.io/github/stars/johnstonskj/rust-email_address.svg)](https://github.com/johnstonskj/rust-email_address/stargazers)
+![Build](https://github.com/Bolderaysky/email_address2/workflows/Rust/badge.svg)
+![Audit](https://github.com/Bolderaysky/email_address2/workflows/Security%20audit/badge.svg)
+[![GitHub stars](https://img.shields.io/github/stars/Bolderaysky/email_address2.svg)](https://github.com/Bolderaysky/email_address2/stargazers)
 
-Primarily for validation, the `EmailAddress` type is constructed with
-`FromStr::from_str` which will raise any parsing errors. Prior to constructions
-the functions `is_valid`, `is_valid_local_part`, and `is_valid_domain` may also be
-used to test for validity without constructing an instance.
+## What's different from `email_address`
+This fork currently provides:
+- Continued maintenance and compatibility updates
+- Optional SQLx support for database integration
+- Dependency and tooling updates where necessary
+- Compatibility improvements for modern Rust toolchains
+
+The public API and behavior are intentionally kept as close as possible to the original crate to allow straightforward migration.
+If you do not require SQLx integration or ongoing updates, the original crate may still be suitable for existing projects.
 
 ## Status
 
@@ -33,6 +43,19 @@ assert_eq!(
     Error::MissingSeparator.into()
 );
 ```
+
+## SQLx Support
+When the `sqlx` feature is enabled, `EmailAddress` integrates with SQLx so it can be stored and retrieved directly from supported database backends.
+
+Example:
+```toml
+email_address2 = { version = "...", features = ["sqlx"] }
+```
+
+This allows EmailAddress to be used directly in query bindings and row decoding without manual conversion.
+
+### Postgres
+Additionally, `sqlx_postgres` feature can be enabled to allow using `EmailAddress` with postgres arrays.
 
 ## Specifications
 
@@ -56,80 +79,6 @@ assert_eq!(
    IETF, Feb 2012
 1. RFC 6532: [_Internationalized Email Headers_](https://tools.ietf.org/html/rfc6532),
    IETF, Feb 2012.
-
-## Changes
-
-### Version 0.2.9
-
-* Fixed bug [#21](https://github.com/johnstonskj/rust-email_address/issues/21): Invalid Unicode characters accepted.
-
-### Version 0.2.8
-
-* Fixed bug [#29](https://github.com/johnstonskj/rust-email_address/issues/29): Put back implementation of `Eq`.
-
-### Version 0.2.7
-
-* Feature: added builder functions to the `Option` type.
-* Documentation: added examples to the `Option` type documentation.
-
-### Version 0.2.6
-
-* Fix: merge issues.
-
-### Version 0.2.5
-
-* Feature: Pull Request #15 -- Potential enhancement to add any free-text as
-  display name.
-* Feature: Pull Request #17 -- Check for non-alphanumeric character starting or
-  ending domain parts.
-* Feature: Pull Request #18 -- Error with `SubDomainEmpty` when empty instead of
-  `InvalidCharacter`.
-* Feature: Pull Request #19 -- Allow configuring minimum number of subdomains.
-* Feature: Pull Request #20 -- Add option to disallow domain literals.
-* Feature: Pull Request #22 -- Handle a single qoute in local part of email
-
-Thanks to [ghandic](https://github.com/ghandic), [blaine-arcjet](https://github.com/blaine-arcjet),
-[Thomasdezeeuw](https://github.com/Thomasdezeeuw).
-
-### Version 0.2.4
-
-* Fixed bug [#11](https://github.com/johnstonskj/rust-email_address/issues/11):
-  1. Add manual implementation of `PartialEq` with case insensitive comparison for
-     domain part.
-  2. Add manual implementation of `Hash`, because above.
-* Change signature for `new_unchecked` to be more flexible.
-* Add `as_str` helper method.
-
-### Version 0.2.3
-
-* Added new `EmailAddress::new_unchecked` function ([Sören Meier](https://github.com/soerenmeier)).
-
-### Version 0.2.2
-
-* Removed manual `Send` and `Sync` implementation, and fixed documentation bug
-  ([Sören Meier](https://github.com/soerenmeier)).
-
-### Version 0.2.1
-
-* Added `From<EmailAddress>` for `String`.
-* Added `AsRef<str` for `EmailAddress`.
-* Added `local_part` and `domain` accessors.
-* More unit tests, especially for the list above.
-* Added more conditions to the warning and deny list.
-* Fixed some Clippy warnings.
-* Fixed a bug in encoding the mailto URI scheme.
-
-### Version 0.2.0
-
-* Added UTF-8 support.
-* Added more test cases, fixing defects in parsing.
-* Method `to_uri` now supports URI encoding the address as a part of the URI.
-* Added `is_valid_local_part` and `is_valid_domain` methods.
-
-### Version 0.1.0
-
-* Basic type implementation and structure based on RFC 5322.
-* See TODO.
 
 ## TODO
 

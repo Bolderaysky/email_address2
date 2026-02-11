@@ -20,7 +20,7 @@ to abide by our [code of conduct](./CODE_OF_CONDUCT.md), and [License](./LICENSE
 Fork, then clone the repo:
 
 ```
-git clone git@github.com:johnstonskj/{{repository-name}}.git
+git clone git@github.com:Bolderaysky/{{repository-name}}.git
 ```
 
 Ensure you have a good Rust install, usually managed by [Rustup](https://rustup.rs/).

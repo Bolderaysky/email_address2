@@ -58,12 +58,11 @@ representative at an online or offline event.
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-johnstonskj@gmail.com.
-All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported 
+by opening an issue in this repository. All reports will be reviewed and investigated 
+promptly and fairly by the community leaders responsible for enforcement.
 
-All community leaders are obligated to respect the privacy and security of the
+All community leaders are obligated to respect the privacy and security of the 
 reporter of any incident.
 
 ## Enforcement Guidelines

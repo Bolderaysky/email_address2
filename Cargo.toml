@@ -1,10 +1,10 @@
 [package]
-name = "email_address"
+name = "email_address2"
 version = "0.2.9"
-authors = ["Simon Johnston <johnstonskj@gmail.com>"]
+authors = ["Thomas Zuyev"]
 description = "A Rust crate providing an implementation of an RFC-compliant `EmailAddress` newtype. "
 documentation = "https://docs.rs/email_address/"
-repository = "https://github.com/johnstonskj/rust-email_address.git"
+repository = "https://github.com/Bolderaysky/email_address2.git"
 edition = "2018"
 license = "MIT"
 readme = "README.md"
